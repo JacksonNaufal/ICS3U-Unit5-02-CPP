@@ -6,20 +6,27 @@
 
 #include <iostream>
 
-int main() {
-    // process & output
+void TemperatureConversion() {
+     std::string celsiusNumber;
+    float fahrenheit;
+    float celsius;
+    
+    // input
+    std::cout << "Enter your number in °C!: ";
+    std::cin >> celsiusNumber;
+    std::cout << std::endl;
+    
     try {
-        for (int integerOne = 0; integerOne < 256; integerOne++) {
-            for (int integerTwo = 0; integerTwo < 256; integerTwo++) {
-                 for (int integerThree = 0; integerThree < 256;
-                    integerThree++) {
-                     std::cout << "RGB, " << integerOne << ", " << integerTwo
-                     << ", " << integerThree << std::endl;
-                }
-            }
-        }
+        celsius = std::stoi(celsiusNumber);
+        fahrenheit = (celsius * 9 / 5) + 32;
+        std::cout << "The temperature is "<< celsius << "°C and " << fahrenheit << "°F." <<std::endl;
+
     } catch (std::invalid_argument) {
         std::cout << "Invalid Input.";
     }
+}
+
+main() {
+    TemperatureConversion();
     std::cout << "\nDone." << std::endl;
 }
