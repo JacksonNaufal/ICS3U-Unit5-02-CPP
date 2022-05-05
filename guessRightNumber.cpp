@@ -3,30 +3,34 @@
 // Created On March 2022
 // This is a loop adder
 
-
 #include <iostream>
 
-void TemperatureConversion() {
-     std::string celsiusNumber;
-    float fahrenheit;
-    float celsius;
-    
-    // input
-    std::cout << "Enter your number in °C!: ";
-    std::cin >> celsiusNumber;
-    std::cout << std::endl;
-    
-    try {
-        celsius = std::stoi(celsiusNumber);
-        fahrenheit = (celsius * 9 / 5) + 32;
-        std::cout << "The temperature is "<< celsius << "°C and " << fahrenheit << "°F." <<std::endl;
+void AreaConversion(int length, int width) {
+     int area;
 
-    } catch (std::invalid_argument) {
-        std::cout << "Invalid Input.";
-    }
+        area = (length * width) / 2;
+        std::cout << "The area is "<< area << "! The Height = " << length <<
+        " The Base = " << width << std::endl;
 }
-
 main() {
-    TemperatureConversion();
+    std::string WidthUserString;
+    std::string LengthUserString;
+    int WidthUser;
+    int LengthUser;
+
+        // input
+    std::cout << "Enter your width (mm)!: ";
+    std::cin >> WidthUserString;
+    std::cout << "Enter your length! (mm): ";
+    std::cin >> LengthUserString;
+
+    try {
+        WidthUser = std::stoi(WidthUserString);
+        LengthUser = std::stoi(LengthUserString);
+        AreaConversion(WidthUser, LengthUser);
+    } catch (std::invalid_argument) {
+        std::cout << "\n Invalid integer!" << std::endl;
+    }
+
     std::cout << "\nDone." << std::endl;
 }
